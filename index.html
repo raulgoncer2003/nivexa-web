@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nivexa — IA y automatización para empresas de reformas</title>
+<meta name="description" content="Nivexa ayuda a empresas de reformas y construcción a conseguir más obras y perder menos tiempo en papeleo, con webs que captan clientes y automatizaciones con IA.">
+<style>
+  :root{
+    --bg:#0e1116;
+    --bg-soft:#161b22;
+    --card:#1b222c;
+    --line:#2a3341;
+    --text:#e8ecf1;
+    --muted:#9aa7b5;
+    --accent:#f97316;
+    --accent-soft:rgba(249,115,22,.12);
+    --radius:14px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    background:var(--bg);color:var(--text);line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+  nav{
+    position:sticky;top:0;z-index:50;
+    background:rgba(14,17,22,.85);backdrop-filter:blur(12px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;height:64px}
+  .logo{font-size:1.35rem;font-weight:800;letter-spacing:-.02em;text-decoration:none;color:var(--text)}
+  .logo span{color:var(--accent)}
+  .nav-links{display:flex;gap:28px;align-items:center}
+  .nav-links a{color:var(--muted);text-decoration:none;font-size:.95rem;transition:color .2s}
+  .nav-links a:hover{color:var(--text)}
+  .btn{
+    display:inline-block;background:var(--accent);color:#fff;
+    padding:12px 24px;border-radius:10px;text-decoration:none;font-weight:600;
+    transition:transform .15s, box-shadow .15s;border:none;cursor:pointer;font-size:1rem;
+  }
+  .btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(249,115,22,.35)}
+  .btn-sm{padding:9px 18px;font-size:.9rem}
+  .btn-ghost{background:transparent;border:1px solid var(--line);color:var(--text)}
+  .btn-ghost:hover{box-shadow:none;border-color:var(--muted)}
+  header{padding:96px 0 72px;position:relative;overflow:hidden}
+  header::before{
+    content:"";position:absolute;inset:0;
+    background:radial-gradient(ellipse 60% 50% at 70% 20%, rgba(249,115,22,.14), transparent 70%);
+    pointer-events:none;
+  }
+  .kicker{
+    display:inline-block;background:var(--accent-soft);color:var(--accent);
+    font-size:.85rem;font-weight:600;padding:6px 14px;border-radius:999px;margin-bottom:20px;
+    border:1px solid rgba(249,115,22,.25);
+  }
+  h1{font-size:clamp(2.1rem,5vw,3.4rem);font-weight:800;letter-spacing:-.03em;line-height:1.12;max-width:15em}
+  h1 em{font-style:normal;color:var(--accent)}
+  .sub{font-size:1.2rem;color:var(--muted);max-width:34em;margin:22px 0 34px}
+  .hero-ctas{display:flex;gap:14px;flex-wrap:wrap}
+  .trust{margin-top:44px;color:var(--muted);font-size:.9rem}
+  section{padding:72px 0;border-top:1px solid var(--line)}
+  .sec-label{color:var(--accent);font-weight:700;font-size:.85rem;text-transform:uppercase;letter-spacing:.1em;margin-bottom:12px}
+  h2{font-size:clamp(1.6rem,3.5vw,2.2rem);font-weight:800;letter-spacing:-.02em;line-height:1.2;margin-bottom:14px}
+  .sec-sub{color:var(--muted);max-width:38em;margin-bottom:44px;font-size:1.05rem}
+  .pain-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
+  .pain{background:var(--bg-soft);border:1px solid var(--line);border-radius:var(--radius);padding:24px}
+  .pain p:first-child{font-size:1.5rem;margin-bottom:10px}
+  .pain strong{display:block;margin-bottom:6px;font-size:1.02rem}
+  .pain span{color:var(--muted);font-size:.95rem}
+  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
+  .card{
+    background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+    padding:30px;display:flex;flex-direction:column;transition:border-color .2s, transform .2s;
+  }
+  .card:hover{border-color:rgba(249,115,22,.5);transform:translateY(-3px)}
+  .card .icon{
+    width:46px;height:46px;border-radius:11px;background:var(--accent-soft);
+    display:flex;align-items:center;justify-content:center;font-size:1.4rem;margin-bottom:18px;
+    border:1px solid rgba(249,115,22,.25);
+  }
+  .card h3{font-size:1.2rem;margin-bottom:10px;letter-spacing:-.01em}
+  .card p{color:var(--muted);font-size:.97rem;flex-grow:1}
+  .card .price{margin-top:18px;padding-top:16px;border-top:1px solid var(--line);font-weight:700;color:var(--accent)}
+  .card .price small{display:block;color:var(--muted);font-weight:400;font-size:.82rem;margin-top:2px}
+  .steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px;counter-reset:step}
+  .step{position:relative;background:var(--bg-soft);border:1px solid var(--line);border-radius:var(--radius);padding:28px 24px 24px}
+  .step::before{
+    counter-increment:step;content:counter(step);
+    position:absolute;top:-16px;left:22px;width:34px;height:34px;border-radius:50%;
+    background:var(--accent);color:#fff;font-weight:800;display:flex;align-items:center;justify-content:center;
+    font-size:1rem;box-shadow:0 4px 14px rgba(249,115,22,.4);
+  }
+  .step strong{display:block;margin:8px 0 8px;font-size:1.05rem}
+  .step span{color:var(--muted);font-size:.95rem}
+  .why{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+  .why ul{list-style:none}
+  .why li{padding:14px 0;border-bottom:1px solid var(--line);color:var(--muted)}
+  .why li:last-child{border-bottom:none}
+  .why li strong{color:var(--text);display:block;margin-bottom:2px}
+  .stat-box{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:36px;text-align:center}
+  .stat-box .big{font-size:3.2rem;font-weight:800;color:var(--accent);letter-spacing:-.03em;line-height:1}
+  .stat-box p{color:var(--muted);margin-top:12px;font-size:.98rem}
+  .cta-box{
+    background:linear-gradient(135deg, rgba(249,115,22,.15), rgba(249,115,22,.04));
+    border:1px solid rgba(249,115,22,.3);border-radius:20px;padding:56px 40px;text-align:center;
+  }
+  .cta-box h2{margin-bottom:10px}
+  .cta-box p{color:var(--muted);max-width:32em;margin:0 auto 30px}
+  .contact-alt{margin-top:22px;color:var(--muted);font-size:.95rem}
+  .contact-alt a{color:var(--accent);text-decoration:none;font-weight:600}
+  footer{padding:36px 0;border-top:1px solid var(--line);color:var(--muted);font-size:.88rem}
+  footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;width:100%}
+  @media(max-width:760px){
+    .nav-links a:not(.btn){display:none}
+    .why{grid-template-columns:1fr}
+    header{padding:64px 0 56px}
+    section{padding:56px 0}
+  }
+</style>
+</head>
+<body>
+<nav>
+  <div class="wrap nav-inner">
+    <a class="logo" href="#">niv<span>e</span>xa</a>
+    <div class="nav-links">
+      <a href="#servicios">Servicios</a>
+      <a href="#proceso">Cómo trabajamos</a>
+      <a href="#porque">Por qué Nivexa</a>
+      <a href="#contacto" class="btn btn-sm">Hablemos</a>
+    </div>
+  </div>
+</nav>
+<header>
+  <div class="wrap">
+    <span class="kicker">IA para empresas de reformas y construcción</span>
+    <h1>El 78% de los clientes contrata a la <em>primera</em> empresa que responde.</h1>
+    <p class="sub">Tú estás en la obra y tardas horas en contestar. Nivexa hace que tu empresa de reformas responda en 1 minuto, a cualquier hora — y automatiza los presupuestos, las citas y las reseñas que te roban las tardes.</p>
+    <div class="hero-ctas">
+      <a class="btn" href="#contacto">Pide una demo gratuita de 15 min</a>
+      <a class="btn btn-ghost" href="#servicios">Ver paquetes</a>
+    </div>
+    <p class="trust">Garantía de 60 días · Sin permanencias · Precios cerrados · Hablas siempre con la misma persona</p>
+  </div>
+</header>
+<section id="problemas" style="border-top:none;padding-top:24px">
+  <div class="wrap">
+    <p class="sec-label">¿Te suena?</p>
+    <h2>El 71% de las empresas de construcción sigue gestionándolo todo a mano</h2>
+    <p class="sec-sub">Y no es por falta de trabajo, sino por falta de tiempo. Estos son los problemas que resolvemos cada día:</p>
+    <div class="pain-grid">
+      <div class="pain"><p>📋</p><strong>Presupuestos que tardan días</strong><span>Y mientras tanto, el cliente ya ha firmado con otro que contestó antes.</span></div>
+      <div class="pain"><p>📞</p><strong>Llamadas sin contestar</strong><span>Estás subido a un andamio; el cliente no espera y llama al siguiente de Google.</span></div>
+      <div class="pain"><p>🌐</p><strong>Web antigua o inexistente</strong><span>Tu competencia con buena web parece más profesional aunque trabaje peor que tú.</span></div>
+      <div class="pain"><p>⭐</p><strong>Reseñas que no llegan</strong><span>Haces un buen trabajo pero nadie lo cuenta en Google. Y las reseñas son lo que hoy trae clientes.</span></div>
+    </div>
+  </div>
+</section>
+<section id="servicios">
+  <div class="wrap">
+    <p class="sec-label">Paquetes</p>
+    <h2>Tres paquetes cerrados, como un buen presupuesto de obra</h2>
+    <p class="sec-sub">Sin sorpresas, sin horas facturables, sin letra pequeña. Eliges, lo montamos, funciona.</p>
+    <div class="cards">
+      <div class="card">
+        <div class="icon">⚡</div>
+        <h3>Respuesta 1 Minuto</h3>
+        <p>Un asistente con IA en tu web y WhatsApp que responde a cada cliente al instante, a cualquier hora, contesta las preguntas típicas, recoge los datos de la obra y te avisa al momento. Ningún cliente sin respuesta, nunca más.</p>
+        <p class="price">700 € + 75 €/mes<small>montado y funcionando en 1 semana</small></p>
+      </div>
+      <div class="card">
+        <div class="icon">🏗️</div>
+        <h3>Web que Trae Obras</h3>
+        <p>Web profesional pensada para el móvil, con tus trabajos antes/después, tus reseñas de Google y un formulario de 3 campos que convierte visitas en solicitudes de presupuesto. Optimizada para que te encuentren en tu zona.</p>
+        <p class="price">250 € entrada + 89 €/mes<small>todo incluido: hosting, cambios y soporte · o 800 € en pago único</small></p>
+      </div>
+      <div class="card">
+        <div class="icon">🚀</div>
+        <h3>Obra Llena</h3>
+        <p>Los dos anteriores más recordatorios de visitas por WhatsApp, petición automática de reseñas al terminar cada obra y presupuestos preparados con IA para que los envíes en 24 horas en vez de en 5 días.</p>
+        <p class="price">1.200 € + 149 €/mes<small>el paquete completo · informe mensual de resultados incluido</small></p>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="proceso">
+  <div class="wrap">
+    <p class="sec-label">Cómo trabajamos</p>
+    <h2>Simple, como debe ser</h2>
+    <p class="sec-sub">No te vamos a marear con palabras raras. Tres pasos y a funcionar.</p>
+    <div class="steps">
+      <div class="step"><strong>Nos cuentas tu día a día</strong><span>Una llamada o un café de 15-30 minutos. Vemos dónde pierdes más tiempo y dónde se te escapan clientes.</span></div>
+      <div class="step"><strong>Te proponemos un plan con precio cerrado</strong><span>Qué haremos, cuánto cuesta y qué vas a ganar con ello. Sin sorpresas ni letra pequeña.</span></div>
+      <div class="step"><strong>Lo montamos y te lo dejamos funcionando</strong><span>Te lo entregamos probado, te enseñamos a usarlo en media hora y nos quedamos cerca por si necesitas algo.</span></div>
+    </div>
+  </div>
+</section>
+<section id="porque">
+  <div class="wrap">
+    <p class="sec-label">Por qué Nivexa</p>
+    <h2>Especialistas en tu sector, no en todos</h2>
+    <div class="why">
+      <ul>
+        <li><strong>Solo trabajamos con reformas y construcción</strong>Conocemos tus tiempos, tus clientes y tus márgenes. No te tratamos como a una tienda de ropa.</li>
+        <li><strong>Hablamos claro</strong>Nada de jerga técnica. Te explicamos todo como te lo explicaría un compañero de gremio.</li>
+        <li><strong>Resultados que se pueden contar</strong>Solicitudes de presupuesto, horas ahorradas, reseñas conseguidas. Si no se puede medir, no te lo vendemos.</li>
+        <li><strong>Garantía de 60 días</strong>Si en dos meses tu web no te ha traído solicitudes de presupuesto, te devolvemos el dinero. Así de claro.</li>
+        <li><strong>Sin permanencias</strong>Si un mes no quieres el mantenimiento, lo dejas. Queremos clientes contentos, no atados.</li>
+      </ul>
+      <div class="stat-box">
+        <p class="big">1 obra</p>
+        <p>Eso es todo lo que necesita traerte tu web para pagarse sola. Cada solicitud que tu asistente atienda a las 22h mientras tu competencia duerme, es ganancia.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="contacto">
+  <div class="wrap">
+    <div class="cta-box">
+      <h2>Cuéntanos dónde pierdes más tiempo</h2>
+      <p>15 minutos por teléfono o WhatsApp. Te decimos qué automatizaríamos primero y cuánto costaría. Sin compromiso y sin que nadie te persiga después.</p>
+      <a class="btn" href="mailto:contacto@nivexa.es?subject=Quiero%20una%20demo%20de%2015%20minutos">Escríbenos ahora</a>
+      <p class="contact-alt">O por WhatsApp: <a href="https://wa.me/34722883747">+34 722 883 747</a> · contacto@nivexa.es</p>
+    </div>
+    <p style="text-align:center;color:var(--muted);font-size:.92rem;margin-top:26px">
+      ¿No tienes una empresa de reformas? Los sistemas que montamos funcionan en cualquier negocio local.
+      <a href="mailto:contacto@nivexa.es?subject=Consulta%20de%20otro%20sector" style="color:var(--accent);text-decoration:none;font-weight:600">Escríbenos igualmente</a> y te decimos con sinceridad si te encaja.
+    </p>
+  </div>
+</section>
+<footer>
+  <div class="wrap">
+    <span><strong>nivexa</strong> — IA y automatización para reformas y construcción</span>
+    <span>© 2026 Nivexa · España</span>
+  </div>
+</footer>
+</body>
+</html>
