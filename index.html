@@ -119,6 +119,22 @@
     header{padding:64px 0 56px}
     section{padding:56px 0}
   }
+.lead-form{max-width:400px;margin:26px auto 0;display:flex;flex-direction:column;gap:12px;text-align:left}
+.lead-form input,.lead-form select{width:100%;border:1.5px solid var(--line);border-radius:10px;padding:13px 15px;font-size:1rem;font-family:inherit;background:var(--bg-soft);color:var(--text)}
+.lead-form input::placeholder{color:var(--muted)}
+.lead-form input:focus,.lead-form select:focus{outline:none;border-color:var(--accent)}
+.lf-btn{margin-top:6px;background:#25d366;color:#fff;width:100%}
+.lf-err{display:none;color:#ff8a8a;font-size:.85rem;text-align:center;margin-top:2px}
+.demo-btn{margin-top:16px;width:100%;background:transparent;border:1.5px solid var(--accent);color:var(--accent);border-radius:10px;padding:11px;font-size:.95rem;font-weight:700;cursor:pointer;font-family:inherit}
+.demo-btn:hover{background:var(--accent);color:#fff}
+.modal{position:fixed;inset:0;z-index:200;background:rgba(8,11,16,.88);display:none;align-items:center;justify-content:center;padding:16px}
+.modal.open{display:flex}
+.modal-box{background:var(--bg);border:1px solid var(--line);border-radius:16px;width:100%;max-width:1000px;height:88vh;display:flex;flex-direction:column;overflow:hidden}
+.modal-head{display:flex;align-items:center;gap:12px;padding:16px 20px;border-bottom:1px solid var(--line);background:var(--bg-soft)}
+.modal-head h3{font-size:1.05rem;color:var(--text);flex:1}
+.modal-head .tip{color:var(--accent);font-size:.82rem;font-weight:600}
+.modal-close{background:none;border:none;color:var(--muted);font-size:1.6rem;cursor:pointer;padding:0 4px}
+.modal iframe{flex:1;width:100%;border:none;background:#fff}
 </style>
 </head>
 <body>
@@ -169,18 +185,21 @@
         <h3>Respuesta 1 Minuto</h3>
         <p>Un asistente con IA en tu web y WhatsApp que responde a cada cliente al instante, a cualquier hora, contesta las preguntas típicas, recoge los datos de la obra y te avisa al momento. Ningún cliente sin respuesta, nunca más.</p>
         <p class="price">700 € + 75 €/mes<small>montado y funcionando en 1 semana</small></p>
+        <button class="demo-btn" data-demo="r1m">Ver como quedaria</button>
       </div>
       <div class="card">
         <div class="icon">🏗️</div>
         <h3>Web que Trae Obras</h3>
         <p>Web profesional pensada para el móvil, con tus trabajos antes/después, tus reseñas de Google y un formulario de 3 campos que convierte visitas en solicitudes de presupuesto. Optimizada para que te encuentren en tu zona.</p>
         <p class="price">250 € entrada + 89 €/mes<small>todo incluido: hosting, cambios y soporte · o 800 € en pago único</small></p>
+        <button class="demo-btn" data-demo="web">Ver como quedaria</button>
       </div>
       <div class="card">
         <div class="icon">🚀</div>
         <h3>Obra Llena</h3>
         <p>Los dos anteriores más recordatorios de visitas por WhatsApp, petición automática de reseñas al terminar cada obra y presupuestos preparados con IA para que los envíes en 24 horas en vez de en 5 días.</p>
         <p class="price">1.200 € + 149 €/mes<small>el paquete completo · informe mensual de resultados incluido</small></p>
+        <button class="demo-btn" data-demo="obra">Ver como quedaria</button>
       </div>
     </div>
   </div>
@@ -221,7 +240,7 @@
     <div class="cta-box">
       <h2>Cuéntanos dónde pierdes más tiempo</h2>
       <p>15 minutos por teléfono o WhatsApp. Te decimos qué automatizaríamos primero y cuánto costaría. Sin compromiso y sin que nadie te persiga después.</p>
-      <a class="btn" href="mailto:contacto@nivexa.es?subject=Quiero%20una%20demo%20de%2015%20minutos">Escríbenos ahora</a>
+      <form id="lead-form" class="lead-form"><input type="text" id="lf-empresa" placeholder="Nombre de tu empresa *" required><input type="text" id="lf-nombre" placeholder="Tu nombre *" required><input type="tel" id="lf-tel" placeholder="Tu telefono / WhatsApp *" required><select id="lf-plan" required><option value="">Que te interesa? *</option><option>Respuesta 1 Minuto</option><option>Web que Trae Obras</option><option>Obra Llena</option><option>Aun no lo se, quiero que me asesoreis</option></select><button type="submit" class="btn lf-btn">Hablemos por WhatsApp</button><p class="lf-err" id="lf-err">Rellena empresa, nombre, telefono y que te interesa.</p></form>
       <p class="contact-alt">O por WhatsApp: <a href="https://wa.me/34722883747">+34 722 883 747</a> · contacto@nivexa.es</p>
     </div>
     <p style="text-align:center;color:var(--muted);font-size:.92rem;margin-top:26px">
@@ -236,5 +255,16 @@
     <span>© 2026 Nivexa · España</span>
   </div>
 </footer>
+<div class="modal" id="demo-modal"><div class="modal-box"><div class="modal-head"><h3 id="demo-title">Ejemplo en vivo</h3><span class="tip" id="demo-tip"></span><button class="modal-close" id="demo-close">X</button></div><iframe id="demo-frame" src="about:blank"></iframe></div></div>
+<script>
+var DEMOS={r1m:{title:"Asi responde tu asistente Respuesta 1 Minuto",tip:"Rellenalo y mira como llega el aviso",src:"presupuesto.html"},web:{title:"Asi quedaria tu Web que Trae Obras",tip:"Prueba a pedir presupuesto",src:"presupuesto.html"},obra:{title:"Obra Llena: web + asistente + presupuestos",tip:"Todo junto funcionando",src:"presupuesto.html"}};
+var _m=document.getElementById("demo-modal"),_f=document.getElementById("demo-frame");
+document.querySelectorAll(".demo-btn").forEach(function(b){b.addEventListener("click",function(){var d=DEMOS[b.getAttribute("data-demo")];document.getElementById("demo-title").textContent=d.title;document.getElementById("demo-tip").textContent=d.tip;_f.src=d.src;_m.classList.add("open");document.body.style.overflow="hidden";});});
+function _cm(){_m.classList.remove("open");_f.src="about:blank";document.body.style.overflow="";}
+document.getElementById("demo-close").addEventListener("click",_cm);
+_m.addEventListener("click",function(e){if(e.target===_m)_cm();});
+var _wa="34722883747",_lf=document.getElementById("lead-form");
+if(_lf)_lf.addEventListener("submit",function(e){e.preventDefault();var emp=document.getElementById("lf-empresa").value.trim(),nom=document.getElementById("lf-nombre").value.trim(),tel=document.getElementById("lf-tel").value.trim(),pl=document.getElementById("lf-plan").value;if(!emp||!nom||!tel||!pl){document.getElementById("lf-err").style.display="block";return;}var mm="*Nueva consulta desde nivexa.es*%0A%0A*Empresa:* "+encodeURIComponent(emp)+"%0A*Nombre:* "+encodeURIComponent(nom)+"%0A*Telefono:* "+encodeURIComponent(tel)+"%0A*Le interesa:* "+encodeURIComponent(pl);window.location.href="https://wa.me/"+_wa+"?text="+mm;});
+</script>
 </body>
 </html>
