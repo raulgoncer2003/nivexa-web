@@ -257,7 +257,7 @@
 </footer>
 <div class="modal" id="demo-modal"><div class="modal-box"><div class="modal-head"><h3 id="demo-title">Ejemplo en vivo</h3><span class="tip" id="demo-tip"></span><button class="modal-close" id="demo-close">X</button></div><iframe id="demo-frame" src="about:blank"></iframe></div></div>
 <script>
-var DEMOS={r1m:{title:"Asi responde tu asistente Respuesta 1 Minuto",tip:"Rellenalo y mira como llega el aviso",src:"presupuesto.html"},web:{title:"Asi quedaria tu Web que Trae Obras",tip:"Prueba a pedir presupuesto",src:"presupuesto.html"},obra:{title:"Obra Llena: web + asistente + presupuestos",tip:"Todo junto funcionando",src:"presupuesto.html"}};
+var DEMOS={r1m:{title:"Asi responde tu asistente Respuesta 1 Minuto",tip:"Rellenalo y mira como llega el aviso",src:"ejemplo.html?plan=r1m"},web:{title:"Asi quedaria tu Web que Trae Obras",tip:"Prueba a pedir presupuesto",src:"ejemplo.html?plan=web"},obra:{title:"Obra Llena: web + asistente + presupuestos",tip:"Todo junto funcionando",src:"ejemplo.html?plan=obra"}};
 var _m=document.getElementById("demo-modal"),_f=document.getElementById("demo-frame");
 document.querySelectorAll(".demo-btn").forEach(function(b){b.addEventListener("click",function(){var d=DEMOS[b.getAttribute("data-demo")];document.getElementById("demo-title").textContent=d.title;document.getElementById("demo-tip").textContent=d.tip;_f.src=d.src;_m.classList.add("open");document.body.style.overflow="hidden";});});
 function _cm(){_m.classList.remove("open");_f.src="about:blank";document.body.style.overflow="";}
