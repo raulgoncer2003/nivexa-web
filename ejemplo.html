@@ -65,10 +65,21 @@ footer{background:var(--navy2);color:#a9bacb;padding:24px 0;text-align:center;fo
 .own{background:#0b1620;color:#e7eef5;border-radius:12px;padding:13px;font-size:.8rem;border:1px solid #24405c}
 .own .h{color:#25d366;font-weight:700;margin-bottom:7px;font-size:.78rem}
 .own .l{display:flex;justify-content:space-between;padding:3px 0;border-bottom:1px dashed #24405c}.own .l:last-child{border-bottom:none}.own .l b{color:#ffd47e}
+#intro{position:fixed;inset:0;background:rgba(13,25,40,.72);z-index:300;display:flex;align-items:center;justify-content:center;padding:18px}
+.ic{background:#fff;max-width:430px;width:100%;border-radius:16px;padding:26px 26px 22px;box-shadow:0 18px 50px rgba(0,0,0,.35)}
+.ic .tag{display:inline-block;background:#fdf3e0;color:#b97b0d;font-size:.72rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:5px 11px;border-radius:999px;margin-bottom:10px}
+.ic h3{color:var(--navy);font-size:1.25rem;margin-bottom:12px;line-height:1.25}
+.ic ul{list-style:none;margin:0 0 16px}
+.ic li{padding:7px 0 7px 28px;position:relative;font-size:.93rem;border-bottom:1px solid #f0f3f6}
+.ic li:last-child{border-bottom:none}
+.ic li::before{content:"✔";position:absolute;left:2px;color:#25d366;font-weight:800}
+.ic button{width:100%;background:var(--amber);border:none;border-radius:11px;padding:14px;font-size:1rem;font-weight:800;color:#1c2b3a;cursor:pointer}
+.ic .mini{text-align:center;font-size:.78rem;color:#8a97a5;margin-top:10px}
 </style>
 </head>
 <body>
 <div class="demo-bar">Ejemplo de una web de reformas hecha con <b>Nivexa</b>. Datos ficticios.</div>
+<div id="intro"><div class="ic"><span class="tag" id="ic-tag"></span><h3 id="ic-t"></h3><ul id="ic-l"></ul><button onclick="closeIntro()">Ver la demo &rarr;</button><p class="mini">Todo se hace a tu gusto y se adapta a lo que necesite tu empresa.</p></div></div>
 <div id="pb">Ejemplo</div>
 <nav><div class="wrap nv"><div class="lg">Reformas <span>Garcia</span></div><a class="ph" href="#">612 345 678</a></div></nav>
 <header><div class="wrap">
@@ -128,7 +139,7 @@ footer{background:var(--navy2);color:#a9bacb;padding:24px 0;text-align:center;fo
 </div>
 <script>
 var plan=(new URLSearchParams(location.search).get('plan')||'obra');
-var PB={r1m:"RESPUESTA 1 MINUTO - Pulsa el chat verde (abajo derecha): el asistente responde solo, al instante",web:"WEB QUE TRAE OBRAS - Esta seria tu web profesional. Pulsa 'Pedir presupuesto' y mira el formulario",obra:"OBRA LLENA - Todo junto: web + asistente + recordatorios + resenas + presupuestos con IA"};
+var PB={r1m:"RESPUESTA 1 MINUTO - Mira: el asistente se abre solo y responde al instante. Pruebalo como si fueras un cliente",web:"WEB QUE TRAE OBRAS - Esta seria tu web profesional. Pulsa 'Pedir presupuesto' y mira el formulario",obra:"OBRA LLENA - Todo junto: web + asistente + recordatorios + resenas + presupuestos con IA"};
 document.getElementById('pb').textContent=PB[plan]||PB.obra;
 if(plan==='web'){document.getElementById('webform').style.display='block';}
 else{document.getElementById('fab').style.display='flex';}
@@ -136,6 +147,15 @@ if(plan==='obra'){document.getElementById('obrastrip').style.display='block';}
 function heroAction(){if(plan==='web'){document.getElementById('webform').scrollIntoView({behavior:'smooth'});}else{openChat();}}
 var msc=document.getElementById('msc'),box=document.getElementById('box'),fab=document.getElementById('fab'),opened=false;
 var lead={tipo:null,det:null,nom:null,tel:null},step='ini';
+var INTRO={
+r1m:{tag:"Plan Respuesta 1 Minuto",t:"Esto es lo que ofrece el plan Respuesta 1 Minuto",l:["Un asistente con IA que contesta a tus clientes al momento, 24 horas, tambien fuera de horario","Recoge nombre, telefono y que obra necesita cada cliente","Te llega un aviso al WhatsApp con todos los datos, listo para llamar","Cero llamadas perdidas: cada consulta se convierte en un posible presupuesto"]},
+web:{tag:"Plan Web que Trae Obras",t:"Esto es lo que ofrece el plan Web que Trae Obras",l:["Una web profesional como esta, con tus obras, tus resenas y tus datos","Pensada para el movil, que es donde buscan tus clientes","Formulario de presupuesto que te envia cada solicitud al instante","Tu dominio propio (tuempresa.es) y correo profesional"]},
+obra:{tag:"Plan Obra Llena",t:"Esto es lo que ofrece el plan Obra Llena",l:["Todo lo del plan Web + todo lo del plan Respuesta 1 Minuto","Recordatorios automaticos de citas y visitas","Peticion automatica de resena en Google al terminar cada obra","Presupuestos generados con IA a partir de los datos del cliente"]}};
+var IN=INTRO[plan]||INTRO.obra;
+document.getElementById('ic-tag').textContent=IN.tag;
+document.getElementById('ic-t').textContent=IN.t;
+document.getElementById('ic-l').innerHTML=IN.l.map(function(x){return '<li>'+x+'</li>';}).join('');
+function closeIntro(){document.getElementById('intro').style.display='none';if(plan!=='web'){setTimeout(function(){openChat();},700);}}
 function openChat(){box.classList.add('on');var d=fab.querySelector('.d');if(d)d.style.display='none';if(!opened){opened=true;bot("Hola! Soy el asistente de Reformas Garcia. Te atiendo al momento, sea la hora que sea. Que necesitas?",function(){quick([["Quiero un presupuesto","presu"],["Que trabajos haceis?","que"]]);});}}
 function closeChat(){box.classList.remove('on');}
 function el(c,h){var d=document.createElement('div');d.className=c;d.innerHTML=h;msc.appendChild(d);msc.scrollTop=msc.scrollHeight;return d;}
