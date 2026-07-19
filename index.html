@@ -270,6 +270,49 @@
   </div>
 </section>
 
+
+<section id="calculadora">
+  <div class="wrap" style="max-width:680px;text-align:center">
+    <p class="sec-label">Haz cuentas</p>
+    <h2>¿Cuánto te cuesta no contestar?</h2>
+    <p class="sec-sub">Mueve los números y mira lo que se te va cada año.</p>
+    <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin:24px 0 18px">
+      <label style="display:flex;flex-direction:column;gap:6px;font-size:.88rem;opacity:.85">Consultas que se te escapan a la semana
+        <input type="number" id="calc-n" value="3" min="0" max="50" oninput="nivCalc()" style="background:#0d1420;border:1px solid rgba(255,255,255,.2);color:#fff;border-radius:9px;padding:11px;font-size:1.15rem;text-align:center;width:130px;margin:0 auto">
+      </label>
+      <label style="display:flex;flex-direction:column;gap:6px;font-size:.88rem;opacity:.85">Valor medio de una obra tuya
+        <select id="calc-v" onchange="nivCalc()" style="background:#0d1420;border:1px solid rgba(255,255,255,.2);color:#fff;border-radius:9px;padding:12px;font-size:1.05rem;width:170px;margin:0 auto">
+          <option value="2000">2.000 € (baño)</option>
+          <option value="4000" selected>4.000 € (media)</option>
+          <option value="9000">9.000 € (cocina)</option>
+          <option value="25000">25.000 € (integral)</option>
+        </select>
+      </label>
+    </div>
+    <p style="font-size:1.05rem;margin:0">Al año estás dejando escapar obras por valor de</p>
+    <p id="calc-r" style="font-size:2.4rem;font-weight:800;color:#e8892e;margin:6px 0 6px">62.400 €</p>
+    <p style="opacity:.6;font-size:.82rem;margin:0">Cálculo prudente: de cada 10 consultas perdidas, solo 1 habría acabado en obra. El plan Respuesta 1 Minuto cuesta 75 €/mes.</p>
+  </div>
+</section>
+<script>
+function nivCalc(){var n=parseFloat(document.getElementById('calc-n').value)||0;var v=parseFloat(document.getElementById('calc-v').value)||0;var r=Math.round(n*52*0.10*v);document.getElementById('calc-r').textContent=r.toLocaleString('es-ES')+' €';}
+nivCalc();
+</script>
+<section id="faq">
+  <div class="wrap" style="max-width:760px">
+    <p class="sec-label">Dudas típicas</p>
+    <h2>Lo que todos preguntan antes de decir que sí</h2>
+    <div style="margin-top:22px">
+      <details style="background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.09);border-radius:12px;padding:16px 20px;margin-bottom:10px"><summary style="cursor:pointer;font-weight:700;font-size:1rem">¿El asistente suena a robot?</summary><p style="margin:10px 0 0;opacity:.8;font-size:.93rem">No. Habla natural, en tu tono y con tus palabras: la mayoría de tus clientes ni nota que es IA. Pruébalo tú mismo en las demos de arriba y juzga.</p></details>
+      <details style="background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.09);border-radius:12px;padding:16px 20px;margin-bottom:10px"><summary style="cursor:pointer;font-weight:700;font-size:1rem">¿Y si no me funciona?</summary><p style="margin:10px 0 0;opacity:.8;font-size:.93rem">Garantía de 60 días: si en dos meses no te ha traído solicitudes de presupuesto, te devolvemos el dinero. El riesgo lo asumimos nosotros.</p></details>
+      <details style="background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.09);border-radius:12px;padding:16px 20px;margin-bottom:10px"><summary style="cursor:pointer;font-weight:700;font-size:1rem">¿Tengo permanencia?</summary><p style="margin:10px 0 0;opacity:.8;font-size:.93rem">Ninguna. Si un mes no quieres seguir con el mantenimiento, lo dejas. Queremos clientes contentos, no atados.</p></details>
+      <details style="background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.09);border-radius:12px;padding:16px 20px;margin-bottom:10px"><summary style="cursor:pointer;font-weight:700;font-size:1rem">¿Necesito saber de tecnología?</summary><p style="margin:10px 0 0;opacity:.8;font-size:.93rem">Cero. Te lo entregamos funcionando, te lo enseñamos en media hora y tú solo tienes que mirar tu WhatsApp, que es donde te llega cada cliente.</p></details>
+      <details style="background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.09);border-radius:12px;padding:16px 20px;margin-bottom:10px"><summary style="cursor:pointer;font-weight:700;font-size:1rem">Ya tengo página web. ¿Me vale algo de esto?</summary><p style="margin:10px 0 0;opacity:.8;font-size:.93rem">Sí: el asistente se instala en tu web actual sin tocarla, o directamente en tu WhatsApp. Y si algún día quieres renovar la web, se añade por 250 €.</p></details>
+      <details style="background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.09);border-radius:12px;padding:16px 20px;margin-bottom:10px"><summary style="cursor:pointer;font-weight:700;font-size:1rem">¿Cuánto tarda en estar funcionando?</summary><p style="margin:10px 0 0;opacity:.8;font-size:.93rem">Una semana desde que dices que sí. Tú nos pasas 4 datos de tu empresa en una llamada de 20 minutos y del resto nos encargamos nosotros.</p></details>
+      <details style="background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.09);border-radius:12px;padding:16px 20px;margin-bottom:10px"><summary style="cursor:pointer;font-weight:700;font-size:1rem">¿Con quién voy a tratar?</summary><p style="margin:10px 0 0;opacity:.8;font-size:.93rem">Siempre con la misma persona: Raul, de Villena. Sin centralitas, sin tickets, sin esperar días por una respuesta. Le escribes por WhatsApp y punto.</p></details>
+    </div>
+  </div>
+</section>
 <section id="zona" style="padding:30px 0 38px">
   <div class="wrap" style="text-align:center">
     <p style="display:inline-block;background:rgba(232,140,50,.1);border:1px solid rgba(232,140,50,.45);border-radius:999px;padding:13px 24px;font-weight:700;margin:0">🔒 Solo aceptamos 2-3 empresas por zona, y nunca a dos competidores del mismo pueblo. Villena y comarca: quedan plazas.</p>
