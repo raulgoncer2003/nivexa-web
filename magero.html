@@ -1,0 +1,379 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light only">
+<title>Gestoría Magero · Elda</title>
+<meta name="description" content="Gestoría en Elda. Autónomos, empresas y particulares. 191 reseñas y un 5,0 en Google.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Gestoría Magero · Elda">
+<meta property="og:description" content="Gestoría en Elda para autónomos, empresas y particulares. 5,0 de nota con 191 reseñas en Google.">
+<meta property="og:url" content="https://nivexa.es/magero.html">
+<meta name="twitter:card" content="summary">
+<style>
+:root{
+  --marino:#10294A; --marino2:#1B3E6B; --azul:#1D6FE0; --azulcl:#EAF1FC;
+  --tinta:#111826; --texto:#48536A; --linea:#E4E9F2; --fondo:#FFFFFF;
+  --hueso:#F6F8FC; --verde:#12A150; --oro:#C9A227;
+}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-text-size-adjust:100%}
+html{scroll-behavior:smooth}
+html,body{background:#fff !important;color:var(--tinta) !important}
+@media (prefers-color-scheme: dark){
+  html,body{background:#fff !important;color:#111826 !important}
+  .card,.svc,.paso,.form-wrap{background:#fff !important}
+}
+body{font-family:'Poppins',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  line-height:1.6;font-size:16px;overflow-x:hidden}
+.wrap{width:100%;max-width:1080px;margin:0 auto;padding:0 20px}
+a{color:inherit}
+.rv{opacity:1;transform:none;transition:opacity .6s ease,transform .6s ease}
+.js .rv{opacity:0;transform:translateY(18px)}
+.js .rv.on{opacity:1;transform:none}
+
+/* barra */
+.top{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.94);
+  backdrop-filter:saturate(160%) blur(10px);border-bottom:1px solid var(--linea)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{display:flex;align-items:center;gap:11px;font-weight:700;font-size:17px;letter-spacing:-.02em}
+.logo .sq{width:34px;height:34px;border-radius:9px;background:var(--marino);color:#fff;
+  display:grid;place-items:center;font-size:15px;font-weight:700}
+.logo small{display:block;font-weight:500;font-size:11px;color:var(--texto);letter-spacing:.06em;
+  text-transform:uppercase;margin-top:-2px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;text-decoration:none;
+  border:0;font-family:inherit;font-weight:600;font-size:15px;border-radius:11px;padding:12px 20px;
+  cursor:pointer;transition:transform .15s ease,box-shadow .15s ease;white-space:nowrap}
+.btn:active{transform:scale(.98)}
+.btn-wa{background:var(--verde);color:#fff;box-shadow:0 6px 18px rgba(18,161,80,.28)}
+.btn-mar{background:var(--marino);color:#fff;box-shadow:0 6px 18px rgba(16,41,74,.22)}
+.btn-gh{background:#fff;color:var(--marino);border:1.5px solid var(--linea)}
+.top .btn{padding:10px 16px;font-size:14px}
+@media(max-width:560px){.top .btn span.lg{display:none}}
+
+/* hero */
+.hero{background:linear-gradient(168deg,#0C2340 0%,#12315A 55%,#173F72 100%);color:#fff;
+  padding:66px 0 74px;position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;inset:0;
+  background:radial-gradient(60% 50% at 82% 12%, rgba(29,111,224,.30) 0%, rgba(29,111,224,0) 65%)}
+.hero .wrap{position:relative;z-index:1}
+.chip{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.13);
+  border:1px solid rgba(255,255,255,.22);border-radius:999px;padding:7px 15px;font-size:13.5px;
+  font-weight:500;margin-bottom:22px}
+.chip b{font-weight:700}
+.est{color:#FFC53D;letter-spacing:1px}
+h1{font-size:clamp(30px,5.4vw,50px);line-height:1.12;letter-spacing:-.03em;font-weight:700;
+  max-width:16ch;margin-bottom:18px}
+.hero p.lead{font-size:clamp(16px,2.1vw,19px);color:rgba(255,255,255,.82);max-width:52ch;margin-bottom:30px}
+.hero-cta{display:flex;gap:12px;flex-wrap:wrap}
+
+/* datos */
+.datos{background:var(--marino);color:#fff;border-top:1px solid rgba(255,255,255,.12)}
+.datos .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;padding:22px 20px}
+.dato{text-align:center}
+.dato b{display:block;font-size:21px;font-weight:700;letter-spacing:-.02em}
+.dato span{font-size:12.5px;color:rgba(255,255,255,.66)}
+@media(max-width:640px){.datos .wrap{grid-template-columns:repeat(2,1fr);gap:18px 8px}}
+
+/* secciones */
+section{padding:70px 0}
+.eyebrow{font-size:12px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;
+  color:var(--azul);margin-bottom:12px}
+h2{font-size:clamp(24px,3.6vw,34px);line-height:1.2;letter-spacing:-.025em;font-weight:700;
+  margin-bottom:12px;max-width:20ch}
+.sub{color:var(--texto);font-size:16.5px;max-width:56ch;margin-bottom:30px}
+
+/* selector */
+.tabs{display:flex;gap:9px;flex-wrap:wrap;margin-bottom:26px}
+.tab{background:#fff;border:1.5px solid var(--linea);border-radius:12px;padding:13px 20px;
+  font-family:inherit;font-size:15px;font-weight:600;color:var(--texto);cursor:pointer;
+  transition:all .18s ease}
+.tab:hover{border-color:#c9d4e6}
+.tab.on{background:var(--marino);border-color:var(--marino);color:#fff}
+.svcs{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+@media(max-width:880px){.svcs{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.svcs{grid-template-columns:1fr}}
+.svc{background:#fff;border:1px solid var(--linea);border-radius:16px;padding:22px;
+  transition:box-shadow .2s ease,transform .2s ease,border-color .2s ease}
+.svc:hover{box-shadow:0 10px 30px rgba(16,41,74,.09);transform:translateY(-2px);border-color:#d4dded}
+.ico{width:42px;height:42px;border-radius:11px;background:var(--azulcl);color:var(--azul);
+  display:grid;place-items:center;margin-bottom:14px}
+.ico svg{width:21px;height:21px;stroke:currentColor;fill:none;stroke-width:1.9;
+  stroke-linecap:round;stroke-linejoin:round}
+.svc h3{font-size:17px;font-weight:700;letter-spacing:-.01em;margin-bottom:6px}
+.svc p{font-size:14.5px;color:var(--texto);line-height:1.55}
+
+/* pasos */
+.pasos-sec{background:var(--hueso)}
+.pasos{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media(max-width:760px){.pasos{grid-template-columns:1fr}}
+.paso{background:#fff;border:1px solid var(--linea);border-radius:16px;padding:24px}
+.num{width:32px;height:32px;border-radius:50%;background:var(--marino);color:#fff;
+  display:grid;place-items:center;font-weight:700;font-size:14px;margin-bottom:13px}
+.paso h3{font-size:16.5px;font-weight:700;margin-bottom:6px}
+.paso p{font-size:14.5px;color:var(--texto)}
+
+/* reseñas */
+.res{background:var(--marino);color:#fff;border-radius:22px;padding:40px 32px;text-align:center}
+.res .big{font-size:56px;font-weight:700;line-height:1;letter-spacing:-.03em}
+.res .stars{font-size:24px;color:#FFC53D;letter-spacing:3px;margin:10px 0 6px}
+.res p{color:rgba(255,255,255,.76);font-size:15.5px;max-width:44ch;margin:0 auto}
+.res a{color:#fff;font-weight:600}
+.quotes{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:26px}
+@media(max-width:860px){.quotes{grid-template-columns:1fr}}
+.q{background:#fff;border:1px solid var(--linea);border-radius:16px;padding:22px;text-align:left}
+.q .st{color:#FFC53D;font-size:15px;letter-spacing:2px;margin-bottom:10px}
+.q p{font-size:15.5px;color:var(--tinta);line-height:1.55;font-style:italic}
+.q span{display:block;font-size:12.5px;color:var(--texto);margin-top:12px}
+
+/* formulario */
+.form-sec{background:var(--hueso)}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:34px;align-items:start}
+@media(max-width:860px){.form-grid{grid-template-columns:1fr;gap:26px}}
+.form-wrap{background:#fff;border:1px solid var(--linea);border-radius:20px;padding:26px;
+  box-shadow:0 12px 40px rgba(16,41,74,.07)}
+label{display:block;font-size:13.5px;font-weight:600;margin-bottom:6px;color:var(--tinta)}
+input,select,textarea{width:100%;font-family:inherit;font-size:15.5px;color:var(--tinta);
+  border:1.5px solid var(--linea);border-radius:11px;padding:12px 14px;background:#fff;
+  margin-bottom:15px;transition:border-color .15s ease}
+input:focus,select:focus,textarea:focus{outline:0;border-color:var(--azul)}
+textarea{resize:vertical;min-height:88px}
+.form-wrap .btn{width:100%;padding:15px;font-size:16px}
+.nota{font-size:12.5px;color:var(--texto);text-align:center;margin-top:11px}
+.vent{list-style:none;display:grid;gap:14px;margin-top:8px}
+.vent li{display:flex;gap:12px;align-items:flex-start;font-size:15.5px;color:var(--texto)}
+.tick{width:22px;height:22px;border-radius:50%;background:#E7F6EE;color:var(--verde);
+  display:grid;place-items:center;flex:0 0 auto;margin-top:2px;font-size:12px;font-weight:700}
+
+/* pie */
+footer{background:var(--marino);color:rgba(255,255,255,.8);padding:52px 0 28px;font-size:15px}
+.fgrid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:30px;margin-bottom:32px}
+@media(max-width:760px){.fgrid{grid-template-columns:1fr;gap:24px}}
+footer h4{color:#fff;font-size:15px;font-weight:700;margin-bottom:11px}
+footer a{text-decoration:none}
+footer a:hover{color:#fff}
+.fbot{border-top:1px solid rgba(255,255,255,.14);padding-top:20px;font-size:12.5px;
+  color:rgba(255,255,255,.5);display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
+.flot{position:fixed;right:16px;bottom:16px;z-index:60;box-shadow:0 10px 30px rgba(18,161,80,.4)}
+@media(max-width:899px){footer{padding-bottom:96px}}
+@media(min-width:900px){.flot{display:none}}
+</style>
+</head>
+<body>
+
+<div class="top"><div class="wrap">
+  <div class="logo"><div class="sq">GM</div><div>Gestoría Magero<small>Elda</small></div></div>
+  <a class="btn btn-wa" href="https://wa.me/34647517058?text=Hola%2C%20quer%C3%ADa%20consultaros%20una%20cosa">
+    Escríbenos<span class="lg"> por WhatsApp</span></a>
+</div></div>
+
+<div class="hero"><div class="wrap">
+  <div class="chip rv"><span class="est">★★★★★</span> <b>5,0</b> de nota con <b>191 reseñas</b> en Google</div>
+  <h1 class="rv">La gestoría de Elda en la que ya confían cientos de personas</h1>
+  <p class="lead rv">Autónomos, empresas y particulares. Nos encargamos del papeleo, los impuestos y los plazos para que tú te dediques a lo tuyo. Cuéntanos tu caso y te decimos qué hay que hacer, sin compromiso.</p>
+  <div class="hero-cta rv">
+    <a class="btn btn-wa" href="#consulta">Cuéntanos tu caso</a>
+    <a class="btn btn-gh" href="tel:+34647517058">Llamar al 647 51 70 58</a>
+  </div>
+</div></div>
+
+<div class="datos"><div class="wrap">
+  <div class="dato"><b>5,0</b><span>Nota en Google</span></div>
+  <div class="dato"><b>191</b><span>Reseñas reales</span></div>
+  <div class="dato"><b>Elda</b><span>C. las Navas, 6</span></div>
+  <div class="dato"><b>Trato directo</b><span>Hablas con quien lleva tu caso</span></div>
+</div></div>
+
+<section><div class="wrap">
+  <div class="eyebrow rv">Qué hacemos</div>
+  <h2 class="rv">Dinos qué eres y te enseñamos lo que te toca</h2>
+  <p class="sub rv">No todo el mundo necesita lo mismo. Elige tu caso y verás solo lo que te afecta a ti.</p>
+  <div class="tabs rv">
+    <button class="tab on" data-t="autonomo">Soy autónomo</button>
+    <button class="tab" data-t="empresa">Tengo una empresa</button>
+    <button class="tab" data-t="particular">Soy particular</button>
+  </div>
+  <div class="svcs" id="svcs"></div>
+</div></section>
+
+<section class="pasos-sec"><div class="wrap">
+  <div class="eyebrow rv">Cómo trabajamos</div>
+  <h2 class="rv">Sencillo, y sin que tengas que entender de papeleo</h2>
+  <div class="pasos" style="margin-top:26px">
+    <div class="paso rv"><div class="num">1</div><h3>Nos cuentas tu caso</h3>
+      <p>Por WhatsApp, por teléfono o pasándote por la oficina. Sin cita y sin compromiso.</p></div>
+    <div class="paso rv"><div class="num">2</div><h3>Te decimos qué hay que hacer</h3>
+      <p>Claro y en cristiano: qué toca, cuándo hay que presentarlo y qué necesitamos de ti.</p></div>
+    <div class="paso rv"><div class="num">3</div><h3>Nos encargamos nosotros</h3>
+      <p>Nosotros llevamos los plazos y te avisamos. Tú te olvidas del calendario.</p></div>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <div class="res rv">
+    <div class="big">5,0</div>
+    <div class="stars">★★★★★</div>
+    <p style="margin-bottom:16px"><b style="color:#fff">191 reseñas en Google</b> y ni una sola por debajo de la nota. No lo decimos nosotros, lo dicen los clientes.</p>
+    <a href="https://www.google.com/maps/search/Gestoria+Magero+Elda" target="_blank" rel="noopener">Ver las reseñas en Google →</a>
+  </div>
+  <div class="quotes">
+    <div class="q rv"><div class="st">★★★★★</div>
+      <p>&ldquo;Tuvieron mucha paciencia para explicarme todo, un gustazo.&rdquo;</p>
+      <span>Reseña en Google</span></div>
+    <div class="q rv"><div class="st">★★★★★</div>
+      <p>&ldquo;Excelente servicio con extraordinaria trayectoria.&rdquo;</p>
+      <span>Reseña en Google</span></div>
+    <div class="q rv"><div class="st">★★★★★</div>
+      <p>&ldquo;Persona muy atenta, seria y formal. Cumple al 100% las expectativas.&rdquo;</p>
+      <span>Reseña en Google</span></div>
+  </div>
+</div></section>
+
+<section class="form-sec" id="consulta"><div class="wrap">
+  <div class="form-grid">
+    <div>
+      <div class="eyebrow rv">Consulta sin compromiso</div>
+      <h2 class="rv">Cuéntanos tu caso y te contestamos</h2>
+      <p class="sub rv" style="margin-bottom:22px">Rellena esto en un minuto. Nos llega directamente al WhatsApp de la gestoría, ya ordenado, y te respondemos.</p>
+      <ul class="vent rv">
+        <li><span class="tick">✓</span><span>La primera consulta no cuesta nada ni te obliga a nada.</span></li>
+        <li><span class="tick">✓</span><span>Te contestamos por donde tú prefieras: WhatsApp, llamada o email.</span></li>
+        <li><span class="tick">✓</span><span>Si lo tuyo no es lo nuestro, te lo decimos y te orientamos igual.</span></li>
+      </ul>
+    </div>
+    <div class="form-wrap rv">
+      <label for="f-nom">Tu nombre</label>
+      <input id="f-nom" type="text" placeholder="Nombre y apellidos" autocomplete="name">
+      <label for="f-tel">Tu teléfono</label>
+      <input id="f-tel" type="tel" placeholder="600 00 00 00" autocomplete="tel">
+      <label for="f-per">¿Qué eres?</label>
+      <select id="f-per">
+        <option>Autónomo</option><option>Empresa o sociedad</option>
+        <option>Particular</option><option>Todavía no lo sé</option>
+      </select>
+      <label for="f-tem">¿Sobre qué?</label>
+      <select id="f-tem">
+        <option>Darme de alta como autónomo</option>
+        <option>Impuestos y declaraciones</option>
+        <option>Contabilidad</option>
+        <option>Nóminas y contratos</option>
+        <option>Declaración de la renta</option>
+        <option>Una herencia</option>
+        <option>Papeles de un vehículo</option>
+        <option>Una carta o requerimiento de Hacienda</option>
+        <option>Otra cosa</option>
+      </select>
+      <label for="f-msg">Cuéntanoslo un poco</label>
+      <textarea id="f-msg" placeholder="Escribe aquí tu situación con tus palabras. No hace falta que sepas los términos."></textarea>
+      <button class="btn btn-wa" id="enviar">Enviar por WhatsApp</button>
+      <p class="nota">Se abre tu WhatsApp con el mensaje ya escrito. Tú solo le das a enviar.</p>
+    </div>
+  </div>
+</div></section>
+
+<footer><div class="wrap">
+  <div class="fgrid">
+    <div>
+      <div class="logo" style="color:#fff;margin-bottom:12px">
+        <div class="sq" style="background:#fff;color:var(--marino)">GM</div>
+        <div style="color:#fff">Gestoría Magero<small style="color:rgba(255,255,255,.6)">Elda</small></div>
+      </div>
+      <p style="font-size:14.5px;max-width:34ch">Gestoría en Elda para autónomos, empresas y particulares.</p>
+    </div>
+    <div>
+      <h4>Contacto</h4>
+      <p><a href="tel:+34647517058">647 51 70 58</a></p>
+      <p><a href="https://wa.me/34647517058">WhatsApp</a></p>
+    </div>
+    <div>
+      <h4>Dónde estamos</h4>
+      <p>C. las Navas, 6<br>03600 Elda, Alicante</p>
+      <p style="margin-top:6px"><a href="https://www.google.com/maps/search/Gestoria+Magero+Elda" target="_blank" rel="noopener">Cómo llegar →</a></p>
+    </div>
+  </div>
+  <div class="fbot">
+    <span>© Gestoría Magero · Elda</span>
+    <span>Página de muestra preparada por Nivexa · los textos se ajustan a vuestros servicios reales</span>
+  </div>
+</div></footer>
+
+<a class="btn btn-wa flot" href="#consulta">Cuéntanos tu caso</a>
+
+<script>
+document.documentElement.classList.add('js');
+var I={
+ doc:'<svg viewBox="0 0 24 24"><path d="M14 3v4a1 1 0 0 0 1 1h4"/><path d="M19 8v10a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h7z"/><path d="M9 13h6M9 17h4"/></svg>',
+ euro:'<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M15 8.5a4 4 0 1 0 0 7"/><path d="M7 11h6M7 13.5h6"/></svg>',
+ calc:'<svg viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M8 7h8M8 11h.01M12 11h.01M16 11h.01M8 15h.01M12 15h.01M16 15h.01"/></svg>',
+ gente:'<svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><path d="M3 20a6 6 0 0 1 12 0"/><path d="M16 6.5a3 3 0 0 1 0 5.5"/><path d="M18 20a5 5 0 0 0-2-4"/></svg>',
+ casa:'<svg viewBox="0 0 24 24"><path d="M4 11 12 4l8 7"/><path d="M6 10v10h12V10"/><path d="M10 20v-6h4v6"/></svg>',
+ coche:'<svg viewBox="0 0 24 24"><path d="M5 16h14"/><path d="M6 16v2M18 16v2"/><path d="M4 16l1.5-5A2 2 0 0 1 7.4 9.6h9.2a2 2 0 0 1 1.9 1.4L20 16z"/><circle cx="8" cy="16" r="1.4"/><circle cx="16" cy="16" r="1.4"/></svg>',
+ aviso:'<svg viewBox="0 0 24 24"><path d="M12 4 3 19h18z"/><path d="M12 10v4M12 17h.01"/></svg>',
+ escudo:'<svg viewBox="0 0 24 24"><path d="M12 3 5 6v6c0 4 3 7.5 7 9 4-1.5 7-5 7-9V6z"/><path d="m9 12 2 2 4-4"/></svg>'
+};
+var S={
+ autonomo:[
+  ['doc','Alta de autónomo','Te damos de alta en Hacienda y en la Seguridad Social, con los epígrafes correctos y la cuota que te toca.'],
+  ['euro','Impuestos trimestrales','IVA e IRPF presentados en plazo. Nosotros llevamos el calendario, tú no te enteras de las fechas.'],
+  ['calc','Tus libros al día','Ingresos, gastos y facturas ordenados como pide Hacienda, y sin que tengas que aprender contabilidad.'],
+  ['escudo','Facturación electrónica','Te explicamos qué te obliga la nueva normativa y te dejamos preparado para cumplirla sin sustos.'],
+  ['aviso','Cartas de Hacienda','¿Te ha llegado un requerimiento? Nos lo enseñas, te decimos qué es y lo contestamos por ti.'],
+  ['gente','Si contratas a alguien','Contrato, nómina y seguros sociales. Todo hecho y presentado desde el primer día.']],
+ empresa:[
+  ['calc','Contabilidad','Llevamos la contabilidad de la empresa al día, con cierre mensual y sin sorpresas a final de año.'],
+  ['euro','Impuestos de sociedades','Sociedades, IVA, retenciones y pagos a cuenta, presentados en plazo.'],
+  ['doc','Cuentas anuales','Preparación, aprobación y depósito en el Registro Mercantil.'],
+  ['gente','Nóminas y personal','Contratos, nóminas, altas y bajas, seguros sociales, finiquitos y todo lo laboral.'],
+  ['aviso','Inspecciones y requerimientos','Si llega Hacienda o Trabajo, damos la cara con vosotros y preparamos la documentación.'],
+  ['escudo','Constitución de sociedades','Montamos la sociedad de principio a fin: notaría, registro, CIF y alta.']],
+ particular:[
+  ['euro','Declaración de la renta','Te la hacemos mirando lo que de verdad te puedes deducir. Si sale a pagar, te decimos por qué.'],
+  ['casa','Herencias','Uno de los momentos más incómodos, resuelto con calma: impuesto de sucesiones, notaría y registro.'],
+  ['coche','Papeles del coche','Transferencias, bajas, cambios de titular y matriculaciones, sin colas ni citas previas.'],
+  ['doc','Alquileres','Contratos, fianzas y la parte del IRPF que te toca declarar como propietario.'],
+  ['aviso','Cartas de Hacienda','Te ha llegado algo que no entiendes. Nos lo traes, te lo explicamos y lo contestamos.'],
+  ['gente','Pensiones y prestaciones','Jubilación, incapacidad y prestaciones. Te decimos a qué tienes derecho y lo tramitamos.']]
+};
+function pinta(k){
+  document.getElementById('svcs').innerHTML=S[k].map(function(s){
+    return '<div class="svc"><div class="ico">'+I[s[0]]+'</div><h3>'+s[1]+'</h3><p>'+s[2]+'</p></div>';
+  }).join('');
+}
+pinta('autonomo');
+[].forEach.call(document.querySelectorAll('.tab'),function(b){
+  b.addEventListener('click',function(){
+    [].forEach.call(document.querySelectorAll('.tab'),function(x){x.classList.remove('on')});
+    b.classList.add('on');pinta(b.dataset.t);
+  });
+});
+
+document.getElementById('enviar').addEventListener('click',function(){
+  function v(id){return (document.getElementById(id).value||'').trim()}
+  var nom=v('f-nom'),tel=v('f-tel'),per=v('f-per'),tem=v('f-tem'),msg=v('f-msg');
+  if(!nom){document.getElementById('f-nom').focus();return}
+  var t='Hola, soy '+nom+'.\n\n';
+  t+='Soy: '+per+'\n';
+  t+='Quería consultaros sobre: '+tem+'\n';
+  if(tel) t+='Mi teléfono: '+tel+'\n';
+  if(msg) t+='\n'+msg+'\n';
+  t+='\n(Enviado desde la web)';
+  window.open('https://wa.me/34647517058?text='+encodeURIComponent(t),'_blank');
+});
+
+(function(){
+  var els=[].slice.call(document.querySelectorAll('.rv'));
+  function todos(){els.forEach(function(e){e.classList.add('on')})}
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(en){
+      en.forEach(function(e){if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target)}})
+    },{rootMargin:'0px 0px -8% 0px',threshold:.05});
+    els.forEach(function(e){io.observe(e)});
+  } else todos();
+  setTimeout(todos,2500);
+})();
+</script>
+</body>
+</html>
