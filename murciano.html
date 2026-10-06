@@ -148,6 +148,8 @@ h2{font-size:clamp(27px,4.2vw,40px);line-height:1.15;margin-bottom:14px;max-widt
   .modos{display:flex;gap:10px;flex-wrap:wrap;margin:-14px 0 30px}
 .modo{display:flex;align-items:center;gap:9px;background:var(--papel);border:1px solid var(--linea);
   border-radius:12px;padding:10px 15px;font-size:14px;font-weight:600}
+.tagr{display:inline-block;background:var(--vino);color:#fff;font-size:10.5px;font-weight:700;letter-spacing:.07em;
+  text-transform:uppercase;padding:2px 8px;border-radius:999px;margin-left:4px;vertical-align:1px;white-space:nowrap}
 .modo i{width:9px;height:9px;border-radius:50%;background:var(--vino);flex:0 0 auto}
   .hambs{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
 @media(max-width:900px){.hambs{grid-template-columns:repeat(2,1fr);gap:14px}}
@@ -280,6 +282,7 @@ textarea{resize:vertical;min-height:70px}
 .opt input{width:auto;margin-top:3px;accent-color:var(--vino)}
 .opt b{display:block;font-size:14.5px}
 .opt span{font-size:12.5px;color:var(--texto);line-height:1.45}
+.opt .tagr{color:#fff;font-size:10.5px;line-height:1.35}
 .pf{border-top:1px solid var(--linea);padding:18px 22px;background:var(--cremaf)}
 .total{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:12px}
 .total span{font-size:14px;color:var(--texto)}
@@ -312,7 +315,7 @@ footer a:hover{color:#fff}
   <div class="wrap">
     <div class="chip rv"><span class="est">★★★★★</span> <b>5,0</b> en Google con <b>24 reseñas</b></div>
     <h1 class="rv">Embutido casero<br><em>hecho en la tienda</em></h1>
-    <p class="lead rv">Carnicería y charcutería en la Avenida de Elche. Elaboramos nuestro embutido aquí mismo, y ahora lo preparamos en packs listos para que los recojas o te lleguen a casa con el envío gratis.</p>
+    <p class="lead rv">Carnicería y charcutería en la Avenida de Elche. Elaboramos nuestro embutido aquí mismo, y ahora lo preparamos en packs listos para que los recojas en la tienda, con regalo, o te lleguen a casa con el envío gratis.</p>
     <div class="rv"><span class="cinta">Elaboración de Embutido Casero de Alta Calidad</span></div>
     <div class="cta rv">
       <a class="btn btn-v" href="#packs">Ver los packs</a>
@@ -366,9 +369,9 @@ footer a:hover{color:#fff}
 <section class="cre" id="packs"><div class="wrap">
   <div class="eyebrow rv">Nuestros packs</div>
   <h2 class="rv">Packs cerrados, con precio cerrado</h2>
-  <p class="sub rv">Sin pesar y sin tener que pensar. Eliges el pack y lo recoges en la tienda, o te lo mandamos a casa con el envío gratis.</p>
+  <p class="sub rv">Sin pesar y sin tener que pensar. Eliges el pack y lo recoges en la tienda, donde te llevas un regalo, o te lo mandamos a casa con el envío gratis.</p>
   <div class="modos rv">
-    <div class="modo"><i></i>Recogida en la tienda</div>
+    <div class="modo"><i></i>Recogida en la tienda <span class="tagr">con regalo</span></div>
     <div class="modo"><i></i>Envío gratis a toda España</div>
   </div>
   <div class="cats rv" id="cats"></div>
@@ -384,7 +387,7 @@ footer a:hover{color:#fff}
     <div class="paso rv"><div class="num">2</div><h3>Nos llega el pedido</h3>
       <p>Se te abre el WhatsApp con todo escrito. Lo envías y te lo confirmamos enseguida.</p></div>
     <div class="paso rv"><div class="num">3</div><h3>Lo recoges o te llega</h3>
-      <p>Pasas por la tienda a la hora que nos digas, o te lo mandamos a casa sin gastos de envío.</p></div>
+      <p>Pasas por la tienda a la hora que nos digas y te llevas un regalo, o te lo mandamos a casa sin gastos de envío.</p></div>
   </div>
 </div></section>
 
@@ -544,7 +547,7 @@ var PACKS=[
   l:['1 jamón de cebo ibérico 50%']}
 ];
 var MODOS=[
- {k:'recoger',b:'Recojo en la tienda',s:'Avenida de Elche, 1. Preparado a la hora que nos digas.'},
+ {k:'recoger',b:'Recojo en la tienda',g:'con regalo',s:'Avenida de Elche, 1. Preparado a la hora que nos digas, y te llevas un regalo.'},
  {k:'envio',b:'Envío gratis a toda España',s:'Al vacío y en frío, entrega en 24 h. Salidas de lunes a jueves.'}
 ];
 
@@ -604,7 +607,7 @@ function pintaModos(){
   document.getElementById('modos').innerHTML=MODOS.map(function(m){
     return '<label class="opt'+(m.k===modo?' on':'')+'" data-k="'+m.k+'">'
       +'<input type="radio" name="modo" value="'+m.k+'"'+(m.k===modo?' checked':'')+'>'
-      +'<span><b>'+m.b+'</b><span>'+m.s+'</span></span></label>'}).join('');
+      +'<span><b>'+m.b+(m.g?' <span class="tagr">'+m.g+'</span>':'')+'</b><span>'+m.s+'</span></span></label>'}).join('');
   [].forEach.call(document.querySelectorAll('.opt'),function(o){
     o.addEventListener('click',function(){
       modo=o.dataset.k;pintaModos();
@@ -626,7 +629,7 @@ document.getElementById('enviar').addEventListener('click',function(){
   var t='Hola El Murciano, quiero hacer un pedido 👋\n\n— MI PEDIDO —\n';
   car.forEach(function(x){var p=PACKS[x.i];
     t+='• '+x.q+' × '+p.n+(p.p==null?'':' — '+eur(p.p*x.q))+(p.r?' (regalo: '+p.r+')':'')+'\n'});
-  t+='\nTOTAL: '+txtTotal()+'\n\nEntrega: '+m.b+'\n';
+  t+='\nTOTAL: '+txtTotal()+'\n\nEntrega: '+m.b+(m.g?' ('+m.g+')':'')+'\n';
   if(modo!=='recoger'&&v('f-dir')) t+='Dirección: '+v('f-dir')+'\n';
   if(v('f-dia')) t+='Para cuándo: '+v('f-dia')+'\n';
   if(v('f-nom')) t+='Nombre: '+v('f-nom')+'\n';
