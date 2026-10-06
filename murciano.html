@@ -328,6 +328,16 @@ footer a:hover{color:#fff}
     <span><b>★ 5,0</b> en Google</span><i></i>
   </div></div>
 </a>
+<script>
+(function(){
+  var a=document.getElementById('aviso');if(!a)return;
+  var p=a.querySelector('.pista'),g=p.querySelector('.grupo');
+  for(var n=0;n<3;n++){var c=g.cloneNode(true);c.setAttribute('aria-hidden','true');p.appendChild(c)}
+  function vel(){var w=g.getBoundingClientRect().width;if(w)a.style.setProperty('--seg',Math.round(w/48)+'s')}
+  vel();if(document.fonts&&document.fonts.ready)document.fonts.ready.then(vel);
+  a.classList.add('mov');
+})();
+</script>
 
 <div class="top"><div class="wrap">
   <div class="marca"><div class="bar"></div>
@@ -691,16 +701,6 @@ pintaCats();pinta();pintaModos();refCar();
     els.forEach(function(e){io.observe(e)});
   } else todos();
   setTimeout(todos,2500);
-})();
-</script>
-<script>
-(function(){
-  var a=document.getElementById('aviso');if(!a)return;
-  var p=a.querySelector('.pista'),g=p.querySelector('.grupo');
-  for(var n=0;n<3;n++){var c=g.cloneNode(true);c.setAttribute('aria-hidden','true');p.appendChild(c)}
-  function vel(){var w=g.getBoundingClientRect().width;if(w)a.style.setProperty('--seg',Math.round(w/48)+'s')}
-  vel();if(document.fonts&&document.fonts.ready)document.fonts.ready.then(vel);
-  a.classList.add('mov');
 })();
 </script>
 </body>
