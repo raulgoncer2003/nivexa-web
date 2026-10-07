@@ -72,10 +72,12 @@ img{display:block;max-width:100%}
 .marca .bar{width:4px;height:40px;background:var(--vino);border-radius:2px;flex:0 0 auto}
 .marca b{font-family:'Rot',Impact,'Arial Narrow',sans-serif;font-size:25px;font-weight:400;
   display:block;line-height:.86;letter-spacing:.005em;text-transform:uppercase}
+.marca .loc{font-family:'Pop',sans-serif;font-size:11px;font-weight:700;letter-spacing:.2em;color:var(--latoncl);
+  margin-left:10px;padding-left:10px;border-left:1px solid rgba(255,255,255,.3);position:relative;top:-3px}
 .marca small{display:block;font-size:11px;letter-spacing:.2em;text-transform:uppercase;
   color:#D8CCC0;font-weight:700;margin-bottom:4px}
 @media(max-width:620px){.marca small{font-size:9.5px;letter-spacing:.16em}
-  .marca b{font-size:21px}}
+  .marca b{font-size:21px}.marca .loc{font-size:9.5px;letter-spacing:.16em;margin-left:8px;padding-left:8px;top:-2px}}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:0;
   font-family:inherit;font-weight:600;font-size:15px;border-radius:12px;padding:13px 22px;
   cursor:pointer;transition:transform .15s ease,filter .15s ease;white-space:nowrap}
@@ -321,13 +323,14 @@ footer a:hover{color:#fff}
 </head>
 <body>
 
-<a class="aviso" id="aviso" href="#packs" aria-label="Envío gratis a toda España. Regalo si recoges tu pedido en la tienda. Ver los packs">
+<a class="aviso" id="aviso" href="#packs" aria-label="Carnicería El Murciano de Villena. Envío gratis a toda España. Regalo si recoges tu pedido en la tienda. Ver los packs">
   <div class="pista"><div class="grupo">
     <span><b>Envío gratis</b> a toda España</span><i></i>
     <span><b>Regalo</b> si recoges tu pedido en la tienda</span><i></i>
     <span>Entrega en <b>24 h</b>, al vacío y en frío</span><i></i>
     <span>Embutido casero <b>hecho en la tienda</b></span><i></i>
     <span><b>★ 5,0</b> en Google</span><i></i>
+    <span>Estamos en <b>Villena</b> (Alicante) · Avenida de Elche, 1</span><i></i>
   </div></div>
 </a>
 <script>
@@ -343,7 +346,7 @@ footer a:hover{color:#fff}
 
 <div class="top"><div class="wrap">
   <div class="marca"><div class="bar"></div>
-    <div><small>Carnicería · Charcutería</small><b>El Murciano</b></div></div>
+    <div><small>Carnicería · Charcutería</small><b>El Murciano<span class="loc">Villena</span></b></div></div>
   <button class="btn btn-l" onclick="abrir()">Mi pedido <span class="pill" id="pill">0</span></button>
 </div></div>
 
@@ -353,7 +356,7 @@ footer a:hover{color:#fff}
   <div class="wrap">
     <div class="chip rv"><span class="est">★★★★★</span> <b>5,0</b> en Google con <b>24 reseñas</b></div>
     <h1 class="rv">Embutido casero<br><em>hecho en la tienda</em></h1>
-    <p class="lead rv">Carnicería y charcutería en la Avenida de Elche. Elaboramos nuestro embutido aquí mismo, y ahora lo preparamos en packs listos para que los recojas en la tienda, con regalo, o te lleguen a casa con el envío gratis.</p>
+    <p class="lead rv">Carnicería y charcutería en Villena (Alicante), en la Avenida de Elche. Elaboramos nuestro embutido aquí mismo, y ahora lo preparamos en packs listos para que los recojas en la tienda, con regalo, o te lleguen a casa con el envío gratis.</p>
     <div class="rv"><span class="cinta">Elaboración de Embutido Casero de Alta Calidad</span></div>
     <div class="cta rv">
       <a class="btn btn-v" href="#packs">Ver los packs</a>
@@ -496,7 +499,7 @@ footer a:hover{color:#fff}
   <div class="fg">
     <div>
       <div class="marca" style="margin-bottom:14px"><div class="bar"></div>
-        <div><small>Carnicería · Charcutería</small><b style="color:var(--crema)">El Murciano</b></div></div>
+        <div><small>Carnicería · Charcutería</small><b style="color:var(--crema)">El Murciano<span class="loc">Villena</span></b></div></div>
       <p style="max-width:36ch">Carnicería y charcutería en Villena. Elaboración de embutido casero de alta calidad.</p>
     </div>
     <div><h4>Contacto</h4>
