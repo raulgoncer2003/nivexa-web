@@ -48,6 +48,40 @@ img{display:block;max-width:100%}
 .js .rv{opacity:0;transform:translateY(20px)}
 .js .rv.on{opacity:1;transform:none}
 
+/* navidad */
+.nav{position:relative;overflow:hidden;color:var(--crema) !important;
+  background:radial-gradient(900px 460px at 88% -8%,rgba(200,164,86,.24),transparent 62%),
+   radial-gradient(760px 420px at -4% 108%,rgba(192,32,42,.34),transparent 62%),#0F3027}
+.nav::before{content:"";position:absolute;inset:0;pointer-events:none;opacity:.2;
+  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='200' viewBox='0 0 260 200' fill='none' stroke='%23E2C786' stroke-width='1.8' stroke-linecap='round'%3E%3Cg transform='translate(46 44) scale(0.8)'%3E%3Cpath d='M0-20V20M0-13l-5-5M0-13l5-5M0 13l-5 5M0 13l5 5'/%3E%3Cg transform='rotate(60)'%3E%3Cpath d='M0-20V20M0-13l-5-5M0-13l5-5M0 13l-5 5M0 13l5 5'/%3E%3C/g%3E%3Cg transform='rotate(120)'%3E%3Cpath d='M0-20V20M0-13l-5-5M0-13l5-5M0 13l-5 5M0 13l5 5'/%3E%3C/g%3E%3C/g%3E%3Cg transform='translate(176 128) scale(0.5)'%3E%3Cpath d='M0-20V20M0-13l-5-5M0-13l5-5M0 13l-5 5M0 13l5 5'/%3E%3Cg transform='rotate(60)'%3E%3Cpath d='M0-20V20M0-13l-5-5M0-13l5-5M0 13l-5 5M0 13l5 5'/%3E%3C/g%3E%3Cg transform='rotate(120)'%3E%3Cpath d='M0-20V20M0-13l-5-5M0-13l5-5M0 13l-5 5M0 13l5 5'/%3E%3C/g%3E%3C/g%3E%3Cg transform='translate(226 36) scale(0.32)'%3E%3Cpath d='M0-20V20M0-13l-5-5M0-13l5-5M0 13l-5 5M0 13l5 5'/%3E%3Cg transform='rotate(60)'%3E%3Cpath d='M0-20V20M0-13l-5-5M0-13l5-5M0 13l-5 5M0 13l5 5'/%3E%3C/g%3E%3Cg transform='rotate(120)'%3E%3Cpath d='M0-20V20M0-13l-5-5M0-13l5-5M0 13l-5 5M0 13l5 5'/%3E%3C/g%3E%3C/g%3E%3Cg transform='translate(96 160) scale(0.3)'%3E%3Cpath d='M0-20V20M0-13l-5-5M0-13l5-5M0 13l-5 5M0 13l5 5'/%3E%3Cg transform='rotate(60)'%3E%3Cpath d='M0-20V20M0-13l-5-5M0-13l5-5M0 13l-5 5M0 13l5 5'/%3E%3C/g%3E%3Cg transform='rotate(120)'%3E%3Cpath d='M0-20V20M0-13l-5-5M0-13l5-5M0 13l-5 5M0 13l5 5'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E") 0 0/260px 200px repeat;
+  -webkit-mask-image:linear-gradient(180deg,#000 0,transparent 60%);mask-image:linear-gradient(180deg,#000 0,transparent 60%)}
+.nav::after{content:"";position:absolute;left:0;right:0;top:0;height:5px;
+  background:repeating-linear-gradient(90deg,var(--vino) 0 26px,var(--latoncl) 26px 30px,#1B5A46 30px 56px,var(--latoncl) 56px 60px)}
+.nav .wrap{position:relative;z-index:1}
+.nav .eyebrow{color:var(--latoncl) !important;display:flex;align-items:center;gap:12px}
+.nav .eyebrow::before{content:"";width:30px;height:1px;background:var(--laton)}
+.nav h2{color:#fff !important;font-size:clamp(32px,5vw,48px)}
+.nav h2 em{font-style:normal;color:var(--latoncl)}
+.nav .sub{color:rgba(248,244,236,.84) !important;max-width:60ch}
+.nav .modo{color:var(--negro)}
+.packs.nvg{display:flex;flex-wrap:wrap;justify-content:center;gap:18px}
+.packs.nvg .pack{flex:0 0 calc((100% - 36px)/3)}
+.pack.nv{position:relative;border:1px solid rgba(200,164,86,.85);box-shadow:0 16px 38px rgba(0,0,0,.32)}
+.pack.nv .pcab{background:linear-gradient(135deg,#8A141D,#B41F29)}
+.pack.nv .pcab::after{right:12px;top:12px;width:32px;height:32px;opacity:.4;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48' viewBox='-24 -24 48 48' fill='none' stroke='%23E2C786' stroke-width='1.6' stroke-linecap='round'%3E%3Cg id='a'%3E%3Cpath d='M0-20V20M0-13l-5-5M0-13l5-5M0 13l-5 5M0 13l5 5'/%3E%3C/g%3E%3Cuse href='%23a' transform='rotate(60)'/%3E%3Cuse href='%23a' transform='rotate(120)'/%3E%3C/svg%3E") center/contain no-repeat}
+.pack.nv .pcab .para{color:#F3DDA6}
+.pack.nv .pcab h3{padding-right:36px}
+.nav .pack{color:var(--negro)}
+.pack.nv .btn-cl{background:var(--vino);color:#fff}
+.pack.nv .pfoto.vac{background:repeating-linear-gradient(135deg,#17463A 0 12px,#133C32 12px 24px)}
+.pack.nv .pfoto.vac span{color:var(--latoncl)}
+.cintanv{position:absolute;left:12px;top:12px;z-index:2;background:var(--latoncl);color:#3A2A08;font-size:10.5px;font-weight:700;
+  letter-spacing:.14em;text-transform:uppercase;padding:4px 10px;border-radius:999px;box-shadow:0 2px 8px rgba(0,0,0,.3)}
+.nvnota{font-size:12.5px;color:rgba(248,244,236,.62);margin-top:26px;text-align:center}
+.btn-nv{background:#14463A;color:#F3DDA6;border:1.5px solid var(--laton)}
+@media(max-width:980px){.packs.nvg .pack{flex-basis:calc((100% - 18px)/2)}}
+@media(max-width:640px){.packs.nvg .pack{flex-basis:100%}}
+
 /* barra de avisos que se mueve */
 .aviso{display:block;background:var(--vino);color:#fff !important;overflow:hidden;text-decoration:none;
   border-bottom:1px solid rgba(0,0,0,.22)}
@@ -326,6 +360,7 @@ footer a:hover{color:#fff}
 <a class="aviso" id="aviso" href="#packs" aria-label="Carnicería El Murciano de Villena. Envío gratis a toda España. Regalo si recoges tu pedido en la tienda. Ver los packs">
   <div class="pista"><div class="grupo">
     <span><b>Envío gratis</b> a toda España</span><i></i>
+    <span>Cestas de <b>Navidad</b>: encarga ya la tuya</span><i></i>
     <span><b>Regalo</b> si recoges tu pedido en la tienda</span><i></i>
     <span>Entrega en <b>24 h</b>, al vacío y en frío</span><i></i>
     <span>Embutido casero <b>hecho en la tienda</b></span><i></i>
@@ -360,6 +395,7 @@ footer a:hover{color:#fff}
     <div class="rv"><span class="cinta">Elaboración de Embutido Casero de Alta Calidad</span></div>
     <div class="cta rv">
       <a class="btn btn-v" href="#packs">Ver los packs</a>
+      <a class="btn btn-nv" href="#navidad">Cestas de Navidad</a>
       <a class="btn btn-o" href="tel:+34678346026">Llamar al 678 34 60 26</a>
     </div>
   </div>
@@ -404,6 +440,18 @@ footer a:hover{color:#fff}
     <div class="hb rv"><img src="murciano-fotos/f529509000.webp" width="520" height="650" loading="lazy" decoding="async" alt="Hamburguesas caseras de ternera angus en bandeja">
       <div class="t"><h3>Ternera angus</h3><p>Angus, con su punto justo de grasa.</p></div></div>
   </div>
+</div></section>
+
+<section class="nav" id="navidad"><div class="wrap">
+  <div class="eyebrow rv">Navidad en El Murciano</div>
+  <h2 class="rv">Cestas de <em>Navidad</em></h2>
+  <p class="sub rv">Para regalar o para tu mesa: embutido ibérico, jamón y su botella, ya preparado en cesta. Dinos para qué día la quieres y la recoges en la tienda, con regalo, o te llega a casa con el envío gratis.</p>
+  <div class="modos rv">
+    <div class="modo"><i></i>Recogida en la tienda <span class="tagr">con regalo</span></div>
+    <div class="modo"><i></i>Envío gratis a toda España</div>
+  </div>
+  <div class="packs nvg" id="listanav"></div>
+  <p class="nvnota">Las cestas llevan vino o sidra: venta solo a mayores de 18 años.</p>
 </div></section>
 
 <div class="damero cl"></div>
@@ -585,7 +633,18 @@ var PACKS=[
  {k:'duroc',c:'Embutido y jamones',n:'Jamón 50% Duroc',para:'Pieza entera · 8,5 kg aprox.',p:94.99,f:'murciano-fotos/3b11180912.webp',
   l:['1 jamón 50% duroc','Carne jugosa y veteada']},
  {k:'iberico',c:'Embutido y jamones',n:'Jamón 50% Cebo Ibérico',para:'Pieza entera · 8,5 a 9 kg aprox.',p:209.99,a:228.99,f:'murciano-fotos/f290f70b63.webp',
-  l:['1 jamón de cebo ibérico 50%']}
+  l:['1 jamón de cebo ibérico 50%']},
+
+ {k:'cestasidra',c:'Navidad',n:'Cesta de Embutido con Sidra',para:'4 embutidos y botella de sidra',p:30,f:'',
+  l:['Salchichón ibérico','Chorizo ibérico','Longaniza seca','Sobrasada','Botella de sidra']},
+ {k:'cestavino',c:'Navidad',n:'Cesta de Embutido con Vino',para:'4 embutidos y botella de vino',p:32,f:'',
+  l:['Salchichón ibérico','Chorizo ibérico','Longaniza seca','Sobrasada','Botella de vino']},
+ {k:'cestajamon',c:'Navidad',n:'Cesta con Jamón',para:'Jamón, 4 embutidos y vino',p:105,f:'',
+  l:['Jamón','Salchichón ibérico','Chorizo ibérico','Longaniza seca','Sobrasada','Botella de vino']},
+ {k:'cestaduroc',c:'Navidad',n:'Cesta con Jamón Duroc 50%',para:'Jamón duroc, 4 embutidos y vino',p:125,f:'',
+  l:['Jamón 50% duroc','Salchichón ibérico','Chorizo ibérico','Longaniza seca','Sobrasada','Botella de vino']},
+ {k:'cestaiberico',c:'Navidad',n:'Cesta de Ibéricos',para:'Jamón de cebo ibérico, 4 embutidos y vino',p:240,f:'',
+  l:['Jamón 50% cebo ibérico','Salchichón ibérico','Chorizo ibérico','Longaniza seca','Sobrasada','Botella de vino']}
 ];
 var MODOS=[
  {k:'recoger',b:'Recojo en la tienda',g:'con regalo',s:'Avenida de Elche, 1. Preparado a la hora que nos digas, y te llevas un regalo.'},
@@ -603,12 +662,11 @@ function pintaCats(){
     b.addEventListener('click',function(){cat=b.dataset.c;pintaCats();pinta()})});
 }
 function precio(p){return p.p==null?'<span class="pend">Precio pendiente</span>':eur(p.p)+(p.a?' <s class="antes">'+eur(p.a)+'</s>':'')}
-function pinta(){
-  document.getElementById('lista').innerHTML=PACKS.map(function(p,i){
-    if(p.c!==cat)return'';
-    return '<div class="pack">'
+function tarjeta(p,i,nv){
+    return '<div class="pack'+(nv?' nv':'')+'">'
+      +(nv?'<span class="cintanv">Navidad</span>':'')
       +(p.f?'<img class="pfoto" src="'+p.f+'" alt="'+p.n+'" width="680" height="510" loading="lazy" decoding="async">'
-           :'<div class="pfoto vac"><span>Foto del pack<br>pendiente</span></div>')
+           :'<div class="pfoto vac"><span>Foto '+(nv?'de la cesta':'del pack')+'<br>pendiente</span></div>')
       +'<div class="pcab"><h3>'+p.n+'</h3><div class="para">'+p.para+'</div></div>'
       +'<div class="pcuerpo">'
       +'<ul class="lista">'+p.l.map(function(x){return '<li><span class="pt">·</span><span>'+x+'</span></li>'}).join('')+'</ul>'
@@ -617,7 +675,13 @@ function pinta(){
       +'<div class="add"><div class="stepper"><button onclick="menos('+i+')">−</button>'
       +'<span class="q" id="q'+i+'">'+cant(i)+'</span><button onclick="mas('+i+')">+</button></div>'
       +'<button class="btn btn-cl" onclick="anadir('+i+')">Añadir</button></div></div>'
-      +'</div></div>'}).join('');
+      +'</div></div>'}
+function pinta(){
+  document.getElementById('lista').innerHTML=PACKS.map(function(p,i){return p.c===cat?tarjeta(p,i,false):''}).join('');
+}
+function pintaNav(){
+  var e=document.getElementById('listanav');if(!e)return;
+  e.innerHTML=PACKS.map(function(p,i){return p.c==='Navidad'?tarjeta(p,i,true):''}).join('');
 }
 function mas(i){tmp[i]=Math.min(20,cant(i)+1);refq(i)}
 function menos(i){tmp[i]=Math.max(1,cant(i)-1);refq(i)}
@@ -680,7 +744,7 @@ document.getElementById('enviar').addEventListener('click',function(){
   window.open('https://wa.me/'+TEL+'?text='+encodeURIComponent(t),'_blank');
 });
 
-pintaCats();pinta();pintaModos();refCar();
+pintaCats();pinta();pintaNav();pintaModos();refCar();
 
 /* horario: marca el día de hoy y dice si está abierto ahora */
 (function(){
