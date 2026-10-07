@@ -77,6 +77,16 @@ img{display:block;max-width:100%}
 .pack.nv .pfoto.vac span{color:var(--latoncl)}
 .cintanv{position:absolute;left:12px;top:12px;z-index:2;background:var(--latoncl);color:#3A2A08;font-size:10.5px;font-weight:700;
   letter-spacing:.14em;text-transform:uppercase;padding:4px 10px;border-radius:999px;box-shadow:0 2px 8px rgba(0,0,0,.3)}
+.pack.med .pfoto.medf{display:grid;place-items:center;text-align:center;position:relative;
+  background:radial-gradient(circle at 50% 38%,#1F5B49,#123A30 72%)}
+.pack.med .pfoto.medf::before{content:"";position:absolute;inset:14px;border:1px dashed rgba(226,199,134,.75);border-radius:10px}
+.pack.med .pfoto.medf b{display:block;font-family:'Lora',Georgia,serif;font-size:34px;line-height:1.1;color:#fff}
+.pack.med .pfoto.medf span{display:block;margin-top:8px;font-size:11.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--latoncl)}
+.pack.med .pcuerpo .d{margin-bottom:2px}
+.pack.nv .lista{align-content:start}
+.pack.med textarea{min-height:84px}
+.pack.med textarea.falta{border-color:var(--vino);background:#fdf1f1}
+.pack.med .btn-g{width:100%;margin-top:auto}
 .nvnota{font-size:12.5px;color:rgba(248,244,236,.62);margin-top:26px;text-align:center}
 .btn-nv{background:#14463A;color:#F3DDA6;border:1.5px solid var(--laton)}
 @media(max-width:980px){.packs.nvg .pack{flex-basis:calc((100% - 18px)/2)}}
@@ -445,7 +455,7 @@ footer a:hover{color:#fff}
 <section class="nav" id="navidad"><div class="wrap">
   <div class="eyebrow rv">Navidad en El Murciano</div>
   <h2 class="rv">Cestas de <em>Navidad</em></h2>
-  <p class="sub rv">Para regalar o para tu mesa: embutido ibérico, jamón y su botella, ya preparado en cesta. Dinos para qué día la quieres y la recoges en la tienda, con regalo, o te llega a casa con el envío gratis.</p>
+  <p class="sub rv">Para regalar o para tu mesa: embutido ibérico, jamón y su botella, ya preparado en cesta. Dinos para qué día la quieres y la recoges en la tienda, con regalo, o te llega a casa con el envío gratis. Y si prefieres otra cosa, te la montamos a tu medida.</p>
   <div class="modos rv">
     <div class="modo"><i></i>Recogida en la tienda <span class="tagr">con regalo</span></div>
     <div class="modo"><i></i>Envío gratis a toda España</div>
@@ -681,7 +691,28 @@ function pinta(){
 }
 function pintaNav(){
   var e=document.getElementById('listanav');if(!e)return;
-  e.innerHTML=PACKS.map(function(p,i){return p.c==='Navidad'?tarjeta(p,i,true):''}).join('');
+  e.innerHTML=PACKS.map(function(p,i){return p.c==='Navidad'?tarjeta(p,i,true):''}).join('')
+    +'<div class="pack nv med" id="medida"><span class="cintanv">A tu medida</span>'
+    +'<div class="pfoto medf"><div><b>Tú eliges</b><span>lo que lleva tu cesta</span></div></div>'
+    +'<div class="pcab"><h3>Cesta a tu medida</h3><div class="para">La montamos con lo que nos pidas</div></div>'
+    +'<div class="pcuerpo">'
+    +'<p class="d">Dinos qué quieres que lleve y cuánto quieres gastar. Te confirmamos el precio por WhatsApp antes de prepararla.</p>'
+    +'<div><label for="cm-que">¿Qué quieres que lleve?</label>'
+    +'<textarea id="cm-que" placeholder="Ej.: un jamón, dos embutidos, un queso y una botella de vino"></textarea></div>'
+    +'<div><label for="cm-pre">Presupuesto aproximado (opcional)</label>'
+    +'<input id="cm-pre" type="text" placeholder="Ej.: 60 €"></div>'
+    +'<button class="btn btn-g" id="cm-env">Pedir mi cesta por WhatsApp</button>'
+    +'</div></div>';
+  var q=document.getElementById('cm-que');
+  q.addEventListener('input',function(){q.classList.remove('falta')});
+  document.getElementById('cm-env').addEventListener('click',function(){
+    var que=(q.value||'').trim(), pre=(document.getElementById('cm-pre').value||'').trim();
+    if(!que){q.classList.add('falta');q.focus();return}
+    var t='Hola El Murciano, quiero una cesta de Navidad a mi medida 👋\n\n— LO QUE QUIERO QUE LLEVE —\n'+que+'\n';
+    if(pre) t+='\nPresupuesto aproximado: '+pre+'\n';
+    t+='\n¿Me decís el precio?\n\n(Pedido hecho desde la web)';
+    window.open('https://wa.me/'+TEL+'?text='+encodeURIComponent(t),'_blank');
+  });
 }
 function mas(i){tmp[i]=Math.min(20,cant(i)+1);refq(i)}
 function menos(i){tmp[i]=Math.max(1,cant(i)-1);refq(i)}
